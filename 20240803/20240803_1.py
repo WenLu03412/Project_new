@@ -1,7 +1,5 @@
 from datetime import datetime
-from tools.file import created_log_file,record_info
-
-
+from tools.file import created_log_file, record_info
 
 
 def main():
@@ -9,8 +7,6 @@ def main():
     current_file_name = now.strftime('%Y_%m_%d.log')
     log_path = created_log_file(current_file_name)
     record_info(log_path)
-    
-    
 
 
 if __name__ == '__main__':
