@@ -15,19 +15,19 @@ def user_release():
     now_str = now.strftime('%Y-%m-%d %H:%M:%S')
     print(now_str)
     if led.is_lit:
-        message = f'''{{
-            "status":true,
-            "date":{now_str},
+        message = f"""{{
+            "status":"true",
+            "date":"{now_str}",
             "topic":"myraspberry/led"
-        }}'''
+        }}"""
         print(message)
         publish.single(topic='myraspberry/led',payload=message,hostname='127.0.0.1',qos=2,auth={'username':os.environ['MQTT_USERNAME'],'password':os.environ['MQTT_PASSWORD']})
     else:
-        message = f'''{{
-            "status":false,
-            "date":{now_str},
+        message = f"""{{
+            "status":"false",
+            "date":"{now_str}",
             "topic":"myraspberry/led"
-        }}''' 
+        }}"""
         print(message)
         publish.single(topic='myraspberry/led',payload=message,hostname='127.0.0.1',qos=2,auth={'username':os.environ['MQTT_USERNAME'],'password':os.environ['MQTT_PASSWORD']})
 
